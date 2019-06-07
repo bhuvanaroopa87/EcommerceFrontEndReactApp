@@ -1,45 +1,37 @@
 const products = [
   {
     _id: "5b21ca3eeb7f6fbccd471811",
-    name: "Samsung Tablet",
-    price: 100,
-    category: { _id: "5b21ca3eeb7f6fbccd471811", name: "Informatique" },
-    image: require("../data/images/samsungTab.jpeg"),
+    name: "Men Polo Shirt",
+    price: 35,
+    category: "Men",
+    image: require("../data/images/image1.jpeg"),
     numOfItemsInCart: 0,
     liked: true
   },
   {
     _id: "5b21ca3eeb7f6fbccd471812",
-    name: "Aspirateur Miele",
-    price: 150,
-    category: { _id: "5b21ca3eeb7f6fbccd471812", name: "MaisonEntretien" },
-    image: require("../data/images/aspMiele.jpeg"),
+    name: "Women Jeans",
+    price: 20,
+    category: "Women",
+    image: require("../data/images/image2.jpeg"),
     numOfItemsInCart: 0
   },
   {
     _id: "5b21ca3eeb7f6fbccd471813",
-    name: "Centrale vapeur Calor",
-    price: 75,
-    category: { _id: "5b21ca3eeb7f6fbccd471813", name: "MaisonEntretien" },
-    image: require("../data/images/calor.jpeg"),
+    name: "Men Jeans",
+    price: 40,
+    category: "Men",
+    image: require("../data/images/image3.jpeg"),
     numOfItemsInCart: 0
   },
   {
     _id: "5b21ca3eeb7f6fbccd471824",
-    name: "Lave linge Electrolux",
-    price: 400,
-    category: { _id: "5b21ca3eeb7f6fbccd471824", name: "Electromenager" },
-    image: require("../data/images/lavalange.jpeg"),
+    name: "Dress",
+    price: 20,
+    category: "Kids",
+    image: require("../data/images/image4.jpeg"),
     numOfItemsInCart: 0,
     liked: true
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd471825",
-    name: "Lave vaisselle Hotpoint",
-    price: 300,
-    category: { _id: "5b21ca3eeb7f6fbccd471825", name: "Electromenager" },
-    image: require("../data/images/laveVaisselle.jpeg"),
-    numOfItemsInCart: 0
   }
 ];
 

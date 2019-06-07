@@ -88,7 +88,7 @@ class Products extends Component {
                 </td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
-                <td>{product.category.name}</td>
+                <td>{product.category}</td>
                 <td>
                   <button
                     onClick={() => this.handleAddProductToCart(product)}
