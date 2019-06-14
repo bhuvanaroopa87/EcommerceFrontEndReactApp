@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./components/navBar";
 import Products from "./components/products";
-
+import Header from "./components/header";
 class App extends Component {
   state = {
     counters: [
@@ -43,6 +43,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header date={Date()}/>
         <NavBar totalCount={this.getTotalCount()} />
         <main className="container">
           <Products />

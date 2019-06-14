@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { getProducts } from "../services/fakeProductService";
 import Like from "./common/like";
+import Pagination from "./common/pagination";
+import { paginate } from "../utils/paginate";
 class Products extends Component {
   state = {
-    products: getProducts()
+    products: getProducts(),
+    pageSize: 4,
+    currentPage: 1
   };
 
   handleDeleteFromProducts = productToDelete => {
@@ -13,7 +17,6 @@ class Products extends Component {
     );
     this.setState({ products: filteredProducts });
   };
-
   handleAddProductToCart = productToAdd => {
     const products = [...this.state.products];
     const index = products.indexOf(productToAdd);
@@ -51,9 +54,15 @@ class Products extends Component {
     });
     this.setState({ products: resetProductLists });
   };
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
   render() {
     const { length: count } = this.state.products;
 
+    const { products: allProducts, currentPage, pageSize } = this.state;
+
+    const products = paginate(allProducts, currentPage, pageSize);
     return (
       <React.Fragment>
         <button className="btn btn-primary pull-right">
@@ -76,7 +85,7 @@ class Products extends Component {
           </thead>
           <tbody>
             {this.showNoProductsWarning(count)}
-            {this.state.products.map(product => (
+            {products.map(product => (
               <tr key={product._id}>
                 <td>
                   <img
@@ -90,6 +99,7 @@ class Products extends Component {
                 <td>{product.price}</td>
                 <td>{product.category}</td>
                 <td>
+                  {" "}
                   <button
                     onClick={() => this.handleAddProductToCart(product)}
                     className="btn btn-success"
@@ -124,6 +134,12 @@ class Products extends Component {
             ))}
           </tbody>
         </table>
+        <Pagination
+          itemsCount={count}
+          pageSize={this.state.pageSize}
+          currentPage={this.state.currentPage}
+          onPageChange={this.handlePageChange}
+        />
       </React.Fragment>
     );
   }
