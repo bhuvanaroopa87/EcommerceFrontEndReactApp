@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { getProducts } from "../services/fakeProductService";
-import { getCategories } from "../services/fakeCategoryService";
-import Pagination from "./common/pagination";
-import ListGroup from "./common/listGroup";
-import { paginate } from "../utils/paginate";
+import { getProducts } from "../../services/fakeProductService";
+import { getCategories } from "../../services/fakeCategoryService";
+import Pagination from "../common/pagination";
+import ListGroup from "../common/listGroup";
+import { paginate } from "../../utils/paginate";
 import ProductsTable from "./productsTable";
 import _ from "lodash";
-import Cart from "./common/cart";
+import Cart from "../common/cart";
 
 class Products extends Component {
   state = {
@@ -68,6 +68,11 @@ class Products extends Component {
     console.log("colName:::", sortColumn);
     this.setState({ sortColumn });
   };
+  handleAddProduct = () => {
+    this.props.history.push("/products/newProduct", {
+      categories: this.state.categories
+    });
+  };
 
   getData = () => {
     const {
@@ -108,7 +113,11 @@ class Products extends Component {
             selectedItem={this.state.selectedCategory}
           />
         </div>
+
         <div className="col">
+          <button className="btn btn-success" onClick={this.handleAddProduct}>
+            Add Product
+          </button>
           <Cart totalNumOfItems={this.getTotalNumOfItemsInCart()} />
           <ProductsTable
             products={result.data}

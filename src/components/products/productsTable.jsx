@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Like from "./common/like";
+import Like from "../common/like";
 import { Link } from "react-router-dom";
 class ProductsTable extends Component {
   showNoProductsWarning(numOfProducts) {
